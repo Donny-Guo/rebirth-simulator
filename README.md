@@ -32,24 +32,6 @@ rebirth-simulator/
 └── README.md
 ```
 
-## 部署到 GitHub Pages
-
-1. 创建 GitHub 仓库并推送代码：
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/<你的用户名>/rebirth-simulator.git
-   git push -u origin main
-   ```
-
-2. 在仓库 Settings → Pages 中：
-   - Source 选择 **Deploy from a branch**
-   - Branch 选 **main**，目录选 **/ (root)**
-   - 点击 Save
-
-3. 等待约 1 分钟，访问 `https://<你的用户名>.github.io/rebirth-simulator/` 即可。
-
 ## 技术栈
 
 - 纯前端：HTML + CSS + JavaScript，零依赖
