@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重生之我在异世界当大佬</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 开场标题页 -->
+<div id="title-screen" class="screen active">
+  <div class="title-container">
+    <div class="ink-splash"></div>
+    <h1 class="game-title">
+      <span class="title-line">重生之</span>
+      <span class="title-line highlight">我在异世界当大佬</span>
+    </h1>
+    <p class="subtitle">——一个离谱到外婆家的文字冒险游戏——</p>
+    <div class="comic-panel title-panel">
+      <div class="panel-text">你死了。又活了。这次，你要把天捅破。</div>
+    </div>
+    <button class="btn-start comic-btn" onclick="showScreen('scenario-screen')">
+      <span class="btn-text">开始重生</span>
+      <span class="btn-decoration">⚡</span>
+    </button>
+  </div>
+  <div class="doodle doodle-1">☁️</div>
+  <div class="doodle doodle-2">⭐</div>
+  <div class="doodle doodle-3">💀</div>
+  <div class="doodle doodle-4">👑</div>
+</div>
+
+<!-- 场景选择页 -->
+<div id="scenario-screen" class="screen">
+  <div class="screen-header">
+    <button class="btn-back comic-btn" onclick="showScreen('title-screen')">← 返回</button>
+    <h2 class="screen-title">选择你的重生身份</h2>
+  </div>
+  <div class="scenario-grid" id="scenario-grid">
+    <!-- JS动态生成 -->
+  </div>
+</div>
+
+<!-- 系统觉醒页 -->
+<div id="system-screen" class="screen">
+  <div class="system-awaken">
+    <div class="glitch-overlay"></div>
+    <div class="system-box">
+      <div class="system-header">[ 系统觉醒 ]</div>
+      <div class="system-name" id="system-name"></div>
+      <div class="system-desc" id="system-desc"></div>
+      <div class="system-skill" id="system-skill"></div>
+    </div>
+    <div class="initial-stats" id="initial-stats"></div>
+    <button class="comic-btn btn-continue" onclick="startGame()">进入世界</button>
+  </div>
+</div>
+
+<!-- 游戏主界面 -->
+<div id="game-screen" class="screen">
+  <!-- 顶部状态栏 -->
+  <div class="game-topbar">
+    <div class="player-info">
+      <span class="player-role" id="player-role"></span>
+      <span class="chapter-info" id="chapter-info"></span>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn-icon" onclick="toggleStats()" title="属性面板">📊</button>
+      <button class="btn-icon" onclick="toggleLog()" title="剧情回顾">📜</button>
+      <button class="btn-icon" onclick="saveGame()" title="存档">💾</button>
+      <button class="btn-icon" onclick="loadGame()" title="读档">📂</button>
+      <button class="btn-icon" onclick="showScreen('title-screen');resetGame()" title="回到标题">🏠</button>
+    </div>
+  </div>
+
+  <!-- 游戏主区域 -->
+  <div class="game-main">
+    <!-- 剧情面板 -->
+    <div class="story-panel comic-panel">
+      <div class="scene-art" id="scene-art"></div>
+      <div class="story-text" id="story-text"></div>
+      <div class="system-notification" id="system-notification"></div>
+    </div>
+
+    <!-- 选择面板 -->
+    <div class="choices-panel" id="choices-panel"></div>
+
+    <!-- 属性面板（侧边滑出） -->
+    <div class="stats-panel" id="stats-panel">
+      <div class="stats-header">
+        <h3>属性面板</h3>
+        <button class="btn-close" onclick="toggleStats()">✕</button>
+      </div>
+      <div class="stats-body" id="stats-body"></div>
+      <div class="skills-section" id="skills-section"></div>
+      <div class="achievements-section" id="achievements-section"></div>
+    </div>
+
+    <!-- 剧情回顾（侧边滑出） -->
+    <div class="log-panel" id="log-panel">
+      <div class="log-header">
+        <h3>剧情回顾</h3>
+        <button class="btn-close" onclick="toggleLog()">✕</button>
+      </div>
+      <div class="log-body" id="log-body"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 结局页 -->
+<div id="ending-screen" class="screen">
+  <div class="ending-container">
+    <div class="ending-label">END</div>
+    <h2 class="ending-title" id="ending-title"></h2>
+    <div class="ending-art" id="ending-art"></div>
+    <div class="ending-text" id="ending-text"></div>
+    <div class="ending-stats" id="ending-stats"></div>
+    <div class="ending-actions">
+      <button class="comic-btn" onclick="showScreen('scenario-screen');resetGame()">换个姿势重生</button>
+      <button class="comic-btn" onclick="showScreen('title-screen');resetGame()">回到标题</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast通知 -->
+<div class="toast-container" id="toast-container"></div>
+
+<script src="stories_boss.js" onerror=""></script>
+<script src="stories_beggar.js" onerror=""></script>
+<script src="stories_assassin.js" onerror=""></script>
+<script src="stories_emperor.js" onerror=""></script>
+<script src="stories_cultivator.js" onerror=""></script>
+<script src="stories.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

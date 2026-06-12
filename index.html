@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重生模拟器 - AI 大乱斗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f4e4c1;--paper-dark:#e8d4a8;--ink:#1a1a1a;
+  --vermilion:#c1272d;--gold:#d4a017;--indigo:#2e5266;
+  --shadow:rgba(26,26,26,0.15)
+}
+html,body{height:100%}
+body{
+  font-family:'ZCOOL KuaiLe','STKaiti','KaiTi',serif;
+  background:var(--paper);color:var(--ink);line-height:1.7;
+  overflow-x:hidden
+}
+.paper-bg{
+  background:
+    radial-gradient(circle at 20% 30%,rgba(193,39,45,.04) 0%,transparent 50%),
+    radial-gradient(circle at 80% 70%,rgba(46,82,102,.05) 0%,transparent 50%),
+    var(--paper);
+  min-height:100vh;position:relative;padding:40px 20px
+}
+.paper-bg::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(26,26,26,.02) 2px,rgba(26,26,26,.02) 3px),
+    repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(26,26,26,.02) 2px,rgba(26,26,26,.02) 3px);
+  pointer-events:none;z-index:0
+}
+.container{max-width:900px;margin:0 auto;position:relative;z-index:1}
+
+/* Title */
+.title-wrap{text-align:center;margin-bottom:50px}
+.main-title{
+  font-family:'Ma Shan Zheng',cursive;font-size:3.2rem;
+  color:var(--ink);position:relative;display:inline-block
+}
+.main-title::after{
+  content:'';position:absolute;bottom:-4px;left:-10px;right:-10px;
+  height:8px;background:var(--vermilion);opacity:.3;border-radius:4px
+}
+.tagline{
+  font-family:'ZCOOL XiaoWei',serif;font-size:1.15rem;
+  color:rgba(26,26,26,.65);margin-top:12px
+}
+.badge{
+  display:inline-block;background:var(--vermilion);color:#fff;
+  font-size:.75rem;padding:2px 10px;border-radius:20px;
+  margin-left:8px;vertical-align:middle;letter-spacing:1px
+}
+
+/* Cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-bottom:40px}
+.card{
+  border:3px solid var(--ink);
+  border-radius:6px 22px 6px 22px/22px 6px 22px 6px;
+  background:var(--paper);position:relative;
+  box-shadow:5px 5px 0 var(--shadow);
+  transition:transform .25s ease,box-shadow .25s ease;
+  cursor:pointer;overflow:hidden;text-decoration:none;color:var(--ink);
+  display:flex;flex-direction:column
+}
+.card:hover{
+  transform:translateY(-6px) rotate(-0.5deg);
+  box-shadow:8px 10px 0 var(--shadow)
+}
+.card:active{transform:translateY(-2px);box-shadow:4px 5px 0 var(--shadow)}
+.card-ribbon{
+  position:absolute;top:14px;right:-30px;
+  background:var(--ink);color:var(--paper);
+  font-size:.7rem;padding:3px 36px;
+  transform:rotate(40deg);letter-spacing:1px;
+  text-align:center
+}
+.card-body{padding:28px 24px 20px;flex:1}
+.card-icon{font-size:2.6rem;margin-bottom:10px}
+.card-title{
+  font-family:'Ma Shan Zheng',cursive;font-size:1.55rem;
+  margin-bottom:6px
+}
+.card-model{color:var(--vermilion);font-size:.85rem;font-weight:bold;margin-bottom:10px}
+.card-desc{
+  font-family:'ZCOOL XiaoWei',serif;font-size:.95rem;
+  color:rgba(26,26,26,.7);line-height:1.8
+}
+.card-footer{
+  padding:14px 24px;border-top:2px dashed rgba(26,26,26,.15);
+  font-size:.85rem;color:rgba(26,26,26,.5);text-align:center
+}
+
+/* Footer */
+.site-footer{
+  text-align:center;padding:30px 0 10px;
+  font-family:'ZCOOL XiaoWei',serif;font-size:.85rem;
+  color:rgba(26,26,26,.4);position:relative;z-index:1
+}
+.site-footer a{color:var(--indigo);text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* Responsive */
+@media(max-width:600px){
+  .main-title{font-size:2.2rem}
+  .paper-bg{padding:24px 14px}
+  .cards{gap:20px}
+}
+</style>
+</head>
+<body>
+<div class="paper-bg">
+<div class="container">
+
+  <div class="title-wrap">
+    <h1 class="main-title">重生模拟器 <span class="badge">AI 大乱斗</span></h1>
+    <p class="tagline">三款 AI 模型，同一个题目，各自发挥 —— 选一个开始你的重生之旅吧！</p>
+  </div>
+
+  <div class="cards">
+
+    <!-- DeepSeek -->
+    <a class="card" href="DeepSeek-V4-Pro/index.html">
+      <div class="card-ribbon">GLM-5.1</div>
+      <div class="card-body">
+        <div class="card-icon">🐉</div>
+        <div class="card-title">重生之我在异世界当大佬</div>
+        <div class="card-model">by DeepSeek-V4-Pro</div>
+        <div class="card-desc">
+          五大重生身份：霸总、乞丐、刺客、皇帝、修仙者。<br>
+          多线剧情 + 属性驱动 + 存档系统 + 成就解锁。
+        </div>
+      </div>
+      <div class="card-footer">5 个场景 · 手绘漫画风 · 存档/读档</div>
+    </a>
+
+    <!-- GLM -->
+    <a class="card" href="glm5_1/index.html">
+      <div class="card-ribbon">多章节</div>
+      <div class="card-body">
+        <div class="card-icon">⚔️</div>
+        <div class="card-title">重生模拟器</div>
+        <div class="card-model">by GLM-5.1</div>
+        <div class="card-desc">
+          墨韵古风，水墨画卷。<br>
+          系统觉醒 + 金手指 + 分支选择 + 结局收集。
+        </div>
+      </div>
+      <div class="card-footer">墨风 UI · 属性面板 · 剧情回顾</div>
+    </a>
+
+    <!-- MiniMax -->
+    <a class="card" href="minimaxM3/index.html">
+      <div class="card-ribbon">单文件</div>
+      <div class="card-body">
+        <div class="card-icon">🎲</div>
+        <div class="card-title">重生之我在xxx当xxx</div>
+        <div class="card-model">by MiniMax-M3</div>
+        <div class="card-desc">
+          古风水墨手绘，沉浸式第一人称。<br>
+          开局选系统金手指，属性驱动爽文剧情。
+        </div>
+      </div>
+      <div class="card-footer">纯前端单文件 · 开箱即玩</div>
+    </a>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>三款 AI 同题竞技，你更喜欢哪个版本？欢迎提 Issue 讨论</p>
+  <p style="margin-top:6px"><a href="https://github.com/">GitHub</a> · 重生模拟器 AI 大乱斗</p>
+</footer>
+</div>
+</body>
+</html>
